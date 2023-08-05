@@ -4,7 +4,7 @@ import 'package:movieapp/presentation/journeys/drawer/navigation_expanded_list_i
 import 'package:movieapp/presentation/journeys/drawer/navigation_list_item.dart';
 import '../blocs/theme/theme_cubit.dart';
 import '../themes/theme_color.dart';
-import 'package:wiredash/wiredash.dart';
+// import 'package:wiredash/wiredash.dart';
 import '../../common/constants/languages.dart';
 import '../../common/constants/route_constants.dart';
 import '../../common/constants/size_constants.dart';
@@ -57,13 +57,13 @@ class ProfileScreen extends StatelessWidget {
               children: Languages.languages.map((e) => e.value).toList(),
               onPressed: (index) => _onLanguageSelected(index, context),
             ),
-            NavigationListItem(
-              title: TranslationConstants.feedback.t(context),
-              onPressed: () {
-                Navigator.of(context).pop();
-                Wiredash.of(context)?.show();
-              },
-            ),
+            // NavigationListItem(
+            //   title: TranslationConstants.feedback.t(context),
+            //   onPressed: () {
+            //     Navigator.of(context).pop();
+            //     Wiredash.of(context)?.show();
+            //   },
+            // ),
             NavigationListItem(
               title: TranslationConstants.about.t(context),
               onPressed: () {

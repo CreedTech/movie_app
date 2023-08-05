@@ -65,7 +65,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ],
       child: Scaffold(
-        drawer: const NavigationDrawer(),
+        drawer: const NavigationDrawers(),
         bottomNavigationBar: SalomonBottomBar(
             currentIndex: _currentIndex,
             onTap: (i) => setState(() => _currentIndex = i),

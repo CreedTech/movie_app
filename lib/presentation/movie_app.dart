@@ -16,7 +16,7 @@ import 'journeys/loading/loading_screen.dart';
 import 'routes.dart';
 import 'themes/theme_color.dart';
 import 'themes/theme_text.dart';
-import 'wiredash_app.dart';
+// import 'wiredash_app.dart';
 
 class MovieApp extends StatefulWidget {
   @override
@@ -63,68 +63,63 @@ class _MovieAppState extends State<MovieApp> {
         builder: (context, theme) {
           return BlocBuilder<LanguageCubit, Locale>(
             builder: (context, locale) {
-              return WiredashApp(
+              return MaterialApp(
                 navigatorKey: _navigatorKey,
-                languageCode: locale.languageCode,
-                child: MaterialApp(
-                  navigatorKey: _navigatorKey,
-                  debugShowCheckedModeBanner: false,
-                  title: 'Movie App',
-                  theme: ThemeData(
-                    unselectedWidgetColor: AppColor.royalBlue,
-                    primaryColor:
-                        theme == Themes.dark ? AppColor.vulcan : Colors.white,
-                    accentColor: AppColor.royalBlue,
-                    scaffoldBackgroundColor:
-                        theme == Themes.dark ? AppColor.vulcan : Colors.white,
-                    brightness: theme == Themes.dark
-                        ? Brightness.dark
-                        : Brightness.light,
-                    cardTheme: CardTheme(
-                      color:
-                          theme == Themes.dark ? Colors.white : AppColor.vulcan,
-                    ),
-                    visualDensity: VisualDensity.adaptivePlatformDensity,
-                    textTheme: theme == Themes.dark
-                        ? ThemeText.getTextTheme()
-                        : ThemeText.getLightTextTheme(),
-                    appBarTheme: const AppBarTheme(elevation: 0),
-                    inputDecorationTheme: InputDecorationTheme(
-                      hintStyle: Theme.of(context).textTheme.greySubtitle1,
-                      focusedBorder: UnderlineInputBorder(
-                        borderSide: BorderSide(
-                          color: theme == Themes.dark
-                              ? Colors.white
-                              : AppColor.vulcan,
-                        ),
-                      ),
-                      enabledBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: Colors.grey)),
-                    ),
+                debugShowCheckedModeBanner: false,
+                title: 'Movie App',
+                theme: ThemeData(
+                  unselectedWidgetColor: AppColor.royalBlue,
+                  primaryColor:
+                      theme == Themes.dark ? AppColor.vulcan : Colors.white,
+                  accentColor: AppColor.royalBlue,
+                  scaffoldBackgroundColor:
+                      theme == Themes.dark ? AppColor.vulcan : Colors.white,
+                  brightness:
+                      theme == Themes.dark ? Brightness.dark : Brightness.light,
+                  cardTheme: CardTheme(
+                    color:
+                        theme == Themes.dark ? Colors.white : AppColor.vulcan,
                   ),
-                  supportedLocales:
-                      Languages.languages.map((e) => Locale(e.code)).toList(),
-                  locale: locale,
-                  localizationsDelegates: [
-                    AppLocalizations.delegate,
-                    GlobalMaterialLocalizations.delegate,
-                    GlobalWidgetsLocalizations.delegate,
-                  ],
-                  builder: (context, child) {
-                    return LoadingScreen(
-                      screen: child!,
-                    );
-                  },
-                  initialRoute: RouteList.initial,
-                  onGenerateRoute: (RouteSettings settings) {
-                    final routes = Routes.getRoutes(settings);
-                    final WidgetBuilder? builder = routes[settings.name];
-                    return FadePageRouteBuilder(
-                      builder: builder!,
-                      settings: settings,
-                    );
-                  },
+                  visualDensity: VisualDensity.adaptivePlatformDensity,
+                  textTheme: theme == Themes.dark
+                      ? ThemeText.getTextTheme()
+                      : ThemeText.getLightTextTheme(),
+                  appBarTheme: const AppBarTheme(elevation: 0),
+                  inputDecorationTheme: InputDecorationTheme(
+                    hintStyle: Theme.of(context).textTheme.greySubtitle1,
+                    focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(
+                        color: theme == Themes.dark
+                            ? Colors.white
+                            : AppColor.vulcan,
+                      ),
+                    ),
+                    enabledBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(color: Colors.grey)),
+                  ),
                 ),
+                supportedLocales:
+                    Languages.languages.map((e) => Locale(e.code)).toList(),
+                locale: locale,
+                localizationsDelegates: [
+                  AppLocalizations.delegate,
+                  GlobalMaterialLocalizations.delegate,
+                  GlobalWidgetsLocalizations.delegate,
+                ],
+                builder: (context, child) {
+                  return LoadingScreen(
+                    screen: child!,
+                  );
+                },
+                initialRoute: RouteList.initial,
+                onGenerateRoute: (RouteSettings settings) {
+                  final routes = Routes.getRoutes(settings);
+                  final WidgetBuilder? builder = routes[settings.name];
+                  return FadePageRouteBuilder(
+                    builder: builder!,
+                    settings: settings,
+                  );
+                },
               );
             },
           );

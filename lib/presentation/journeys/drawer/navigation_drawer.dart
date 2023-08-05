@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../blocs/theme/theme_cubit.dart';
 import '../../themes/theme_color.dart';
-import 'package:wiredash/wiredash.dart';
+// import 'package:wiredash/wiredash.dart';
 
 import '../../../common/constants/languages.dart';
 import '../../../common/constants/route_constants.dart';
@@ -17,8 +17,8 @@ import '../../widgets/logo.dart';
 import 'navigation_expanded_list_item.dart';
 import 'navigation_list_item.dart';
 
-class NavigationDrawer extends StatelessWidget {
-  const NavigationDrawer();
+class NavigationDrawers extends StatelessWidget {
+  const NavigationDrawers();
 
   @override
   Widget build(BuildContext context) {
@@ -58,13 +58,13 @@ class NavigationDrawer extends StatelessWidget {
               children: Languages.languages.map((e) => e.value).toList(),
               onPressed: (index) => _onLanguageSelected(index, context),
             ),
-            NavigationListItem(
-              title: TranslationConstants.feedback.t(context),
-              onPressed: () {
-                Navigator.of(context).pop();
-                Wiredash.of(context)?.show();
-              },
-            ),
+            // NavigationListItem(
+            //   title: TranslationConstants.feedback.t(context),
+            //   onPressed: () {
+            //     Navigator.of(context).pop();
+            //     Wiredash.of(context)?.show();
+            //   },
+            // ),
             NavigationListItem(
               title: TranslationConstants.about.t(context),
               onPressed: () {
