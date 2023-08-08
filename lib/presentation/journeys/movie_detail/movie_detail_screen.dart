@@ -81,7 +81,7 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
                       ),
                       child: Text(
                         movieDetail.overview ?? '',
-                        style: Theme.of(context).textTheme.bodyText2,
+                        style: Theme.of(context).textTheme.bodyMedium,
                       ),
                     ),
                     Padding(
@@ -89,7 +89,7 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
                           EdgeInsets.symmetric(horizontal: Sizes.dimen_16.w),
                       child: Text(
                         TranslationConstants.cast.t(context),
-                        style: Theme.of(context).textTheme.headline6,
+                        style: Theme.of(context).textTheme.titleLarge,
                       ),
                     ),
                     CastWidget(),

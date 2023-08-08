@@ -65,7 +65,7 @@ class _MovieTabbedWidgetState extends State<MovieTabbedWidget>
                           child: Text(
                             TranslationConstants.noMovies.t(context),
                             textAlign: TextAlign.center,
-                            style: Theme.of(context).textTheme.subtitle1,
+                            style: Theme.of(context).textTheme.titleMedium,
                           ),
                         ),
                       )

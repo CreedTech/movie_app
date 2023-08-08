@@ -40,7 +40,7 @@ class Button extends StatelessWidget {
         onPressed: isEnabled ? onPressed : null,
         child: Text(
           text.t(context),
-          style: Theme.of(context).textTheme.button,
+          style: Theme.of(context).textTheme.labelLarge,
         ),
       ),
     );

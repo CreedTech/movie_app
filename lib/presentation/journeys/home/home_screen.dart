@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movieapp/presentation/journeys/favorite/favorite_screen.dart';
-import 'package:movieapp/presentation/journeys/search_movie/search_movie_card.dart';
 import 'package:movieapp/presentation/main-menu/profile_screen.dart';
 import 'package:movieapp/presentation/main-menu/search_screen.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';

@@ -36,7 +36,7 @@ class TabTitleWidget extends StatelessWidget {
           title.t(context), //'popular', 'now', 'soon'
           style: isSelected
               ? Theme.of(context).textTheme.royalBlueSubtitle1
-              : Theme.of(context).textTheme.subtitle1,
+              : Theme.of(context).textTheme.titleMedium,
         ),
       ),
     );

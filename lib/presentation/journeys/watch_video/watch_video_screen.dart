@@ -105,7 +105,7 @@ class _WatchVideoScreenState extends State<WatchVideoScreen> {
                                   child: Text(
                                     _videos[i].title,
                                     style:
-                                        Theme.of(context).textTheme.subtitle1,
+                                        Theme.of(context).textTheme.titleMedium,
                                   ),
                                 ),
                               ),

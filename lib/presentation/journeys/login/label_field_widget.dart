@@ -28,7 +28,7 @@ class LabelFieldWidget extends StatelessWidget {
         children: [
           Text(
             label.toUpperCase(),
-            style: Theme.of(context).textTheme.headline6,
+            style: Theme.of(context).textTheme.titleLarge,
             textAlign: TextAlign.start,
           ),
           TextField(
@@ -36,7 +36,7 @@ class LabelFieldWidget extends StatelessWidget {
             obscureText: isPasswordField,
             obscuringCharacter: '*',
             controller: controller,
-            style: Theme.of(context).textTheme.headline6,
+            style: Theme.of(context).textTheme.titleLarge,
             decoration: InputDecoration(hintText: hintText),
           ),
         ],

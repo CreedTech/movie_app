@@ -51,7 +51,7 @@ class SearchMovieCard extends StatelessWidget {
                 children: [
                   Text(
                     movie.title,
-                    style: Theme.of(context).textTheme.subtitle1,
+                    style: Theme.of(context).textTheme.titleMedium,
                   ),
                   Text(
                     movie.overview ?? '',

@@ -45,7 +45,7 @@ class BigPoster extends StatelessWidget {
           child: ListTile(
             title: Text(
               movie.title,
-              style: Theme.of(context).textTheme.headline5,
+              style: Theme.of(context).textTheme.headlineSmall,
             ),
             subtitle: Text(
               movie.releaseDate ?? '',

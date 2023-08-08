@@ -46,7 +46,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
                   child: Text(
                     TranslationConstants.noFavoriteMovie.t(context),
                     textAlign: TextAlign.center,
-                    style: Theme.of(context).textTheme.subtitle1,
+                    style: Theme.of(context).textTheme.titleMedium,
                   ),
                 );
               }
