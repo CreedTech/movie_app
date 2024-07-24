@@ -26,17 +26,20 @@ class LabelFieldWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            label.toUpperCase(),
-            style: Theme.of(context).textTheme.titleLarge,
-            textAlign: TextAlign.start,
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 3, vertical: 2),
+            child: Text(
+              label,
+              style: Theme.of(context).textTheme.bodyMedium,
+              textAlign: TextAlign.start,
+            ),
           ),
           TextField(
             key: textFieldKey,
             obscureText: isPasswordField,
             obscuringCharacter: '*',
             controller: controller,
-            style: Theme.of(context).textTheme.titleLarge,
+            style: Theme.of(context).textTheme.bodyMedium,
             decoration: InputDecoration(hintText: hintText),
           ),
         ],

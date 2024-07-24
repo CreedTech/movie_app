@@ -15,7 +15,7 @@ class ThemeCubit extends Cubit<Themes> {
   }) : super(Themes.dark);
 
   Future<void> toggleTheme() async {
-    await updateTheme(state == Themes.dark ? 'light' : 'dark');
+    await updateTheme(state == Themes.dark ? 'light' : 'light');
     loadPreferredTheme();
   }
 
@@ -24,7 +24,7 @@ class ThemeCubit extends Cubit<Themes> {
     emit(
       response.fold(
         (l) => Themes.dark,
-        (r) => r == 'dark' ? Themes.dark : Themes.light,
+        (r) => r == 'dark' ? Themes.light : Themes.light,
       ),
     );
   }

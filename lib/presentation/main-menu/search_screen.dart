@@ -29,6 +29,6 @@ class _SearchScreenState extends State<SearchScreen> {
                 BlocProvider.of<SearchMovieCubit>(context),
               ),
             ));
-    return Container();
+    return Container(child: Center(child: Text('Search For Movies')),);
   }
 }

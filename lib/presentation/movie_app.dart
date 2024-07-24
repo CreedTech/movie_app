@@ -66,15 +66,15 @@ class _MovieAppState extends State<MovieApp> {
               return MaterialApp(
                 navigatorKey: _navigatorKey,
                 debugShowCheckedModeBanner: false,
-                title: 'Movie App',
+                title: 'Sight',
                 theme: ThemeData(
                   unselectedWidgetColor: AppColor.royalBlue,
                   primaryColor:
                       theme == Themes.dark ? AppColor.vulcan : Colors.white,
                   scaffoldBackgroundColor:
                       theme == Themes.dark ? AppColor.vulcan : Colors.white,
-                  brightness:
-                      theme == Themes.dark ? Brightness.dark : Brightness.light,
+                  // brightness:
+                  //     theme == Themes.dark ? Brightness.dark : Brightness.light,
                   cardTheme: CardTheme(
                     color:
                         theme == Themes.dark ? Colors.white : AppColor.vulcan,
@@ -86,16 +86,22 @@ class _MovieAppState extends State<MovieApp> {
                   appBarTheme: const AppBarTheme(elevation: 0),
                   inputDecorationTheme: InputDecorationTheme(
                     hintStyle: Theme.of(context).textTheme.greySubtitle1,
-                    focusedBorder: UnderlineInputBorder(
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
                       borderSide: BorderSide(
                         color: theme == Themes.dark
                             ? Colors.white
                             : AppColor.vulcan,
                       ),
                     ),
-                    enabledBorder: UnderlineInputBorder(
-                        borderSide: BorderSide(color: Colors.grey)),
-                  ), colorScheme: ColorScheme.fromSwatch().copyWith(secondary: AppColor.royalBlue),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                      borderSide: BorderSide(color: Colors.grey),
+                    ),
+                    contentPadding: EdgeInsets.all(14),
+                  ),
+                  colorScheme: ColorScheme.fromSwatch()
+                      .copyWith(secondary: AppColor.royalBlue),
                 ),
                 supportedLocales:
                     Languages.languages.map((e) => Locale(e.code)).toList(),

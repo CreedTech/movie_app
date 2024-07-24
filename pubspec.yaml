@@ -18,7 +18,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 99.99.99+99
 
 environment:
-  sdk: ">=2.12.0 <3.0.0"
+  sdk: '>=2.17.5 <3.0.0'
 
 dependencies:
   flutter:
@@ -30,27 +30,28 @@ dependencies:
   cupertino_icons: ^1.0.2
   equatable: ^2.0.0
   http: ^0.13.1
-  dartz: ^0.10.0-nullsafety.1
+  dartz: 
   get_it: ^6.1.1
-  google_fonts: ^2.0.0
+  google_fonts: ^4.0.3
   flutter_bloc: ^7.0.0
   flutter_svg: ^0.22.0
-  cached_network_image: ^3.0.0
 #  wiredash: ^0.6.2
-  hive: ^2.0.4
+  hive:
   path_provider: ^2.0.1
   youtube_player_flutter: ^8.0.0
   flare_flutter: ^3.0.0
   flutter_localizations:
     sdk: flutter
   salomon_bottom_bar: ^3.3.1
+  cached_network_image: ^3.3.1
+  google_mobile_ads:
 
 dev_dependencies:
-  hive_generator: ^1.1.0
+  hive_generator: 
   build_runner: ^2.0.1
   test: ^1.16.5
   bloc_test: ^8.0.0
-  mockito: ^5.0.5
+  mockito:
   flutter_test:
     sdk: flutter
   flutter_launcher_icons: ^0.9.0

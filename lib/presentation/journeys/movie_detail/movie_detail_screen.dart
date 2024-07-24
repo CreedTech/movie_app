@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 
+import '../../../ad_helper.dart';
 import '../../../common/constants/size_constants.dart';
 import '../../../common/constants/translation_constants.dart';
 import '../../../common/extensions/size_extensions.dart';
@@ -32,7 +34,32 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
   late CastCubit _castCubit;
   late VideosCubit _videosCubit;
   late FavoriteCubit _favoriteCubit;
+  // TODO: Add _interstitialAd
+//  InterstitialAd? _interstitialAd;
 
+   // TODO: Implement _loadInterstitialAd()
+  // void _loadInterstitialAd() {
+  //   InterstitialAd.load(
+  //     adUnitId: AdHelper.interstitialAdUnitId,
+  //     request: AdRequest(),
+  //     adLoadCallback: InterstitialAdLoadCallback(
+  //       onAdLoaded: (ad) {
+  //         ad.fullScreenContentCallback = FullScreenContentCallback(
+  //           onAdDismissedFullScreenContent: (ad) {
+  //             _moveToHome();
+  //           },
+  //         );
+
+  //         setState(() {
+  //           _interstitialAd = ad;
+  //         });
+  //       },
+  //       onAdFailedToLoad: (err) {
+  //         print('Failed to load an interstitial ad: ${err.message}');
+  //       },
+  //     ),
+  //   );
+  // }
   @override
   void initState() {
     super.initState();

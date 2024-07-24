@@ -26,7 +26,7 @@ class NavigationDrawers extends StatelessWidget {
       decoration: BoxDecoration(
         boxShadow: [
           BoxShadow(
-            color: Theme.of(context).primaryColor.withOpacity(0.7),
+            color: Theme.of(context).primaryColor,
             blurRadius: 4,
           ),
         ],
@@ -44,7 +44,7 @@ class NavigationDrawers extends StatelessWidget {
                 right: Sizes.dimen_8.w,
               ),
               child: Logo(
-                height: Sizes.dimen_20.h,
+                height: Sizes.dimen_8.h,
               ),
             ),
             NavigationListItem(

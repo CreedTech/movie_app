@@ -22,18 +22,18 @@ class MovieAppBar extends StatelessWidget {
       ),
       child: Row(
         children: <Widget>[
-          IconButton(
-            onPressed: () {
-              Scaffold.of(context).openDrawer();
-            },
-            icon: SvgPicture.asset(
-              'assets/svgs/menu.svg',
-              height: Sizes.dimen_12.h,
-              color: context.read<ThemeCubit>().state == Themes.dark
-                  ? Colors.white
-                  : AppColor.vulcan,
-            ),
-          ),
+          // IconButton(
+          //   onPressed: () {
+          //     Scaffold.of(context).openDrawer();
+          //   },
+          //   icon: SvgPicture.asset(
+          //     'assets/svgs/menu.svg',
+          //     height: Sizes.dimen_12.h,
+          //     color: context.read<ThemeCubit>().state == Themes.dark
+          //         ? Colors.white
+          //         : AppColor.vulcan,
+          //   ),
+          // ),
           Expanded(child: Logo(height: Sizes.dimen_14)),
           IconButton(
             onPressed: () {
@@ -48,7 +48,7 @@ class MovieAppBar extends StatelessWidget {
               Icons.search,
               color: context.read<ThemeCubit>().state == Themes.dark
                   ? Colors.white
-                  : AppColor.vulcan,
+                  : AppColor.royalBlue,
               size: Sizes.dimen_12.h,
             ),
           ),

@@ -63,7 +63,7 @@ class _LoginFormState extends State<LoginForm> {
             Padding(
               padding: EdgeInsets.only(bottom: Sizes.dimen_8.h),
               child: Text(
-                TranslationConstants.loginToMovieApp.t(context),
+                'Login To Sight Using TMDB',
                 textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.headlineSmall,
               ),

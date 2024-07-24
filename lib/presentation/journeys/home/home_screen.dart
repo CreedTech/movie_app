@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:movieapp/presentation/journeys/favorite/favorite_screen.dart';
 import 'package:movieapp/presentation/main-menu/profile_screen.dart';
 import 'package:movieapp/presentation/main-menu/search_screen.dart';
+import 'package:movieapp/presentation/themes/theme_color.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
+import '../../../ad_helper.dart';
 import '../../../di/get_it.dart';
 import '../../blocs/movie_backdrop/movie_backdrop_cubit.dart';
 import '../../blocs/movie_carousel/movie_carousel_cubit.dart';
 import '../../blocs/movie_tabbed/movie_tabbed_cubit.dart';
 import '../../blocs/search_movie/search_movie_cubit.dart';
+import '../../blocs/theme/theme_cubit.dart';
 import '../../widgets/app_error_widget.dart';
 import '../drawer/navigation_drawer.dart';
 import 'movie_carousel/movie_carousel_widget.dart';
@@ -26,10 +30,30 @@ class _HomeScreenState extends State<HomeScreen> {
   late MovieTabbedCubit movieTabbedCubit;
   late SearchMovieCubit searchMovieCubit;
   var _currentIndex = 0;
+  // // TODO: Add _bannerAd
+  // BannerAd? _bannerAd;
 
   @override
   void initState() {
     super.initState();
+
+    // // TODO: Load a banner ad
+    // BannerAd(
+    //   adUnitId: AdHelper.bannerAdUnitId,
+    //   request: AdRequest(),
+    //   size: AdSize.banner,
+    //   listener: BannerAdListener(
+    //     onAdLoaded: (ad) {
+    //       setState(() {
+    //         _bannerAd = ad as BannerAd;
+    //       });
+    //     },
+    //     onAdFailedToLoad: (ad, err) {
+    //       print('Failed to load a banner ad: ${err.message}');
+    //       ad.dispose();
+    //     },
+    //   ),
+    // ).load();
     movieCarouselCubit = getItInstance<MovieCarouselCubit>();
     movieBackdropCubit = movieCarouselCubit.movieBackdropCubit;
     movieTabbedCubit = getItInstance<MovieTabbedCubit>();
@@ -40,6 +64,8 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void dispose() {
     super.dispose();
+    // TODO: Dispose a BannerAd object
+    // _bannerAd?.dispose();
     movieCarouselCubit.close();
     movieBackdropCubit.close();
     movieTabbedCubit.close();
@@ -73,28 +99,29 @@ class _HomeScreenState extends State<HomeScreen> {
               SalomonBottomBarItem(
                 icon: Icon(Icons.home),
                 title: Text("Home"),
-                selectedColor: Colors.purple,
+                selectedColor: AppColor.royalBlue,
               ),
 
               /// Likes
               SalomonBottomBarItem(
                 icon: Icon(Icons.favorite_border),
                 title: Text("Likes"),
-                selectedColor: Colors.pink,
+                selectedColor: AppColor.royalBlue,
               ),
 
               /// Search
               SalomonBottomBarItem(
                 icon: Icon(Icons.search),
                 title: Text("Search"),
-                selectedColor: Colors.orange,
+                selectedColor: AppColor.royalBlue,
+                // unselectedColor: ThemeCubit().getPreferredTheme() ? Colors.white : AppColor.vulcan
               ),
 
               /// Profile
               SalomonBottomBarItem(
                 icon: Icon(Icons.person),
                 title: Text("Profile"),
-                selectedColor: Colors.teal,
+                selectedColor: AppColor.royalBlue,
               ),
             ]),
         body: BlocBuilder<MovieCarouselCubit, MovieCarouselState>(
@@ -113,6 +140,16 @@ class _HomeScreenState extends State<HomeScreen> {
                           defaultIndex: state.defaultIndex,
                         ),
                       ),
+                      // TODO: Display a banner when ready
+                      // if (_bannerAd != null)
+                      //   Align(
+                      //     alignment: Alignment.center,
+                      //     child: Container(
+                      //       width: _bannerAd!.size.width.toDouble(),
+                      //       height: _bannerAd!.size.height.toDouble(),
+                      //       child: AdWidget(ad: _bannerAd!),
+                      //     ),
+                      //   ),
                       FractionallySizedBox(
                         alignment: Alignment.bottomCenter,
                         heightFactor: 0.4,

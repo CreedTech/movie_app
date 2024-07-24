@@ -21,14 +21,17 @@ class VideosWidget extends StatelessWidget {
       builder: (context, state) {
         if (state is VideosLoaded && state.videos.iterator.moveNext()) {
           final _videos = state.videos;
-          return Button(
-            text: TranslationConstants.watchTrailers,
-            onPressed: () {
-              Navigator.of(context).pushNamed(
-                RouteList.watchTrailer,
-                arguments: WatchVideoArguments(_videos),
-              );
-            },
+          return Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20),
+            child: Button(
+              text: TranslationConstants.watchTrailers,
+              onPressed: () {
+                Navigator.of(context).pushNamed(
+                  RouteList.watchTrailer,
+                  arguments: WatchVideoArguments(_videos),
+                );
+              },
+            ),
           );
         } else {
           return const SizedBox.shrink();

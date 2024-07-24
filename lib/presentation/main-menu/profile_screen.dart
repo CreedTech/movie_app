@@ -43,7 +43,7 @@ class ProfileScreen extends StatelessWidget {
                 right: Sizes.dimen_8.w,
               ),
               child: Logo(
-                height: Sizes.dimen_20.h,
+                height: Sizes.dimen_8.h,
               ),
             ),
             NavigationListItem(
@@ -52,11 +52,11 @@ class ProfileScreen extends StatelessWidget {
                 Navigator.of(context).pushNamed(RouteList.favorite);
               },
             ),
-            NavigationExpandedListItem(
-              title: TranslationConstants.language.t(context),
-              children: Languages.languages.map((e) => e.value).toList(),
-              onPressed: (index) => _onLanguageSelected(index, context),
-            ),
+            // NavigationExpandedListItem(
+            //   title: TranslationConstants.language.t(context),
+            //   children: Languages.languages.map((e) => e.value).toList(),
+            //   onPressed: (index) => _onLanguageSelected(index, context),
+            // ),
             // NavigationListItem(
             //   title: TranslationConstants.feedback.t(context),
             //   onPressed: () {
@@ -85,23 +85,23 @@ class ProfileScreen extends StatelessWidget {
               ),
             ),
             Spacer(),
-            BlocBuilder<ThemeCubit, Themes>(builder: (context, theme) {
-              return Align(
-                alignment: Alignment.center,
-                child: IconButton(
-                  onPressed: () => context.read<ThemeCubit>().toggleTheme(),
-                  icon: Icon(
-                    theme == Themes.dark
-                        ? Icons.brightness_4_sharp
-                        : Icons.brightness_7_sharp,
-                    color: context.read<ThemeCubit>().state == Themes.dark
-                        ? Colors.white
-                        : AppColor.vulcan,
-                    size: Sizes.dimen_40.w,
-                  ),
-                ),
-              );
-            }),
+            // BlocBuilder<ThemeCubit, Themes>(builder: (context, theme) {
+            //   return Align(
+            //     alignment: Alignment.center,
+            //     child: IconButton(
+            //       onPressed: () => context.read<ThemeCubit>().toggleTheme(),
+            //       icon: Icon(
+            //         theme == Themes.dark
+            //             ? Icons.brightness_4_sharp
+            //             : Icons.brightness_7_sharp,
+            //         color: context.read<ThemeCubit>().state == Themes.dark
+            //             ? Colors.white
+            //             : AppColor.vulcan,
+            //         size: Sizes.dimen_40.w,
+            //       ),
+            //     ),
+            //   );
+            // }),
           ],
         ),
       ),

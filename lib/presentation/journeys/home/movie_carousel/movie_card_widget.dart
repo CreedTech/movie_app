@@ -16,6 +16,8 @@ class MovieCardWidget extends StatelessWidget {
     required this.movieId,
     required this.posterPath,
   }) : super(key: key);
+  
+  
 
   @override
   Widget build(BuildContext context) {

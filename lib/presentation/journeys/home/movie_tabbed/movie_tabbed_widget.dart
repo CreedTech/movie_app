@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 
+import '../../../../ad_helper.dart';
 import '../../../../common/constants/size_constants.dart';
 import '../../../../common/constants/translation_constants.dart';
 import '../../../../common/extensions/size_extensions.dart';
@@ -23,16 +25,37 @@ class _MovieTabbedWidgetState extends State<MovieTabbedWidget>
       BlocProvider.of<MovieTabbedCubit>(context);
 
   int currentTabIndex = 0;
+    // TODO: Add _bannerAd
+  BannerAd? _bannerAd;
 
   @override
   void initState() {
     super.initState();
+       // TODO: Load a banner ad
+    BannerAd(
+      adUnitId: AdHelper.bannerAdUnitId,
+      request: AdRequest(),
+      size: AdSize.banner,
+      listener: BannerAdListener(
+        onAdLoaded: (ad) {
+          setState(() {
+            _bannerAd = ad as BannerAd;
+          });
+        },
+        onAdFailedToLoad: (ad, err) {
+          print('Failed to load a banner ad: ${err.message}');
+          ad.dispose();
+        },
+      ),
+    ).load();
     movieTabbedCubit.movieTabChanged(currentTabIndex: currentTabIndex);
   }
 
   @override
   void dispose() {
     super.dispose();
+      // TODO: Dispose a BannerAd object
+    _bannerAd?.dispose();
   }
 
   @override
@@ -43,6 +66,16 @@ class _MovieTabbedWidgetState extends State<MovieTabbedWidget>
           padding: EdgeInsets.only(top: Sizes.dimen_4.h),
           child: Column(
             children: <Widget>[
+              if (_bannerAd != null)
+                Align(
+                  alignment: Alignment.center,
+                  child: Container(
+                    width: _bannerAd!.size.width.toDouble(),
+                    height: _bannerAd!.size.height.toDouble(),
+                    child: AdWidget(ad: _bannerAd!),
+                  ),
+                ),
+                SizedBox(height: 15,),
               Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,

@@ -21,7 +21,7 @@ class Logo extends StatelessWidget {
       key: const ValueKey('logo_image_key'),
       color: context.read<ThemeCubit>().state == Themes.dark
           ? Colors.white
-          : AppColor.vulcan,
+          : AppColor.royalBlue,
       height: height.h,
     );
   }

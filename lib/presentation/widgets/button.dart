@@ -20,21 +20,22 @@ class Button extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AnimatedContainer(
+      width: MediaQuery.of(context).size.width - 50,
       duration: const Duration(milliseconds: 200),
       curve: Curves.easeIn,
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: isEnabled
-              ? [AppColor.royalBlue, AppColor.violet]
+              ? [AppColor.royalBlue, AppColor.royalBlue]
               : [Colors.grey, Colors.grey],
         ),
         borderRadius: BorderRadius.all(
-          Radius.circular(Sizes.dimen_20.w),
+          Radius.circular(Sizes.dimen_14.w),
         ),
       ),
       padding: EdgeInsets.symmetric(horizontal: Sizes.dimen_16.w),
       margin: EdgeInsets.symmetric(vertical: Sizes.dimen_10.h),
-      height: Sizes.dimen_16.h,
+      height: Sizes.dimen_20.h,
       child: TextButton(
         key: const ValueKey('main_button'),
         onPressed: isEnabled ? onPressed : null,
